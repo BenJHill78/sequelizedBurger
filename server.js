@@ -5,6 +5,18 @@ var mysql = require("mysql");
 
 var port = process.env.port || 8080;
 
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    port: 3306,
+    host: "cdm1s48crk8itlnr.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    user: "kb8bx3zuokbobfia",
+    password: "xsnz9xw852bep5gc",
+    database: "burgerss_db"
+ });
+});
+
 var app = express();
 
 app.use(express.static("public"));
