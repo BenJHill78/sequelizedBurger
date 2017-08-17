@@ -14,8 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "//kb8bx3zuokbobfia:xsnz9xw852bep5gc@cdm1s48crk8itlnr.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/dwpc5yj82yhfmv6p"
-
+    "username": "root",
+    "password": "",
+    "database": "burgerss_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
     

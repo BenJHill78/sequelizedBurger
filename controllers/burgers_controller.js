@@ -2,18 +2,18 @@ var express = require("express");
 
 var router = express.Router();
 
-var db = require("../models");
+var db = require("../models")['Burger'];
 
 router.get("/", function(req, res) {    
-    db.Burger.findAll({})
+    db.findAll({})
     .then(function(dbBurgers) {
-      res.render("index", {burgers: dbBurgers});
+      res.render("index", {Burger: dbBurgers});
     });
 });
 
 router.put("/burgers/update").post(function(req,res){
 	var Burger = req.body;
-	db.Burger.update({
+	db.update({
 		devoured: Burger.devoured
 	},{
 		where: {id: Burger.id}
@@ -25,7 +25,7 @@ router.put("/burgers/update").post(function(req,res){
 
 router.post("/api/burgers/insert").post(function(req,res){
 	var Burger = req.body;
-	db.Burger.create({
+	db.create({
 		burger_name: Burger.name,
 		devoured: false
 	}).then(function(dbBurgers){

@@ -3,7 +3,7 @@
 <h2>Burgers to Eat</h2>
 
 <ul>
-  {{#each burgers}}
+  {{#each Burger}}
     {{#unless this.devoured}}
       <li>
         {{this.burger_name}}
@@ -21,7 +21,7 @@
 <h2>Burgers Devoured</h2>
 
 <ul>
-  {{#each burgers}}
+  {{#each Burger}}
     {{#if this.devoured}}
       <li>
         {{this.burger_name}}
