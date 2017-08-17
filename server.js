@@ -3,7 +3,7 @@ var mo = require("method-override");
 var bodyParser = require("body-parser");
 var mysql = require("mysql");
 
-var port = process.env.PORT || 3000;
+var port = process.env.port || 8080;
 
 var app = express();
 
@@ -22,8 +22,6 @@ app.set("view engine", "handlebars");
 var routes = require("./controllers/burgers_controller.js");
 
 app.use("/", routes);
-app.listen(port);
-console.log("listening on port " + port);
 
 var db = require("./models");
 
