@@ -2,7 +2,7 @@ var express = require("express");
 
 var router = express.Router();
 
-var db = require("../models")['Burger'];
+var db = require("../models");
 
 router.get("/", function(req, res) {    
     db.Burger.findAll({})
@@ -11,22 +11,26 @@ router.get("/", function(req, res) {
     });
 });
 
-router.put("/burgers/update").post(function(req,res){
-	var Burger = req.body;
+router.put("/:id", function(req,res){
+	var burger = req.body;
+    console.log("id: ", req.params.id);
 	db.Burger.update({
-		devoured: Burger.devoured
+		devoured: burger.devoured
 	},{
-		where: {id: Burger.id}
+		where: {id: req.params.id}
 	}).then(function(dbBurgers){
         
         res.redirect("/");
     });
 });
 
-router.post("/burgers/insert").post(function(req,res){
-	var Burger = req.body;
-	db.Burger.create({
-		burger_name: Burger.name,
+router.post("/", function(req,res){
+	var burger = req.body;
+    
+    console.log("burger:", burger);
+    
+    db.Burger.create({
+		burger_name: burger.burger_name,
 		devoured: false
 	}).then(function(dbBurgers){
         res.redirect("/");
