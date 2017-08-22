@@ -3,7 +3,7 @@ var mo = require("method-override");
 var bodyParser = require("body-parser");
 var mysql = require("mysql");
 
-var port = process.env.port || 8080;
+var port = process.env.PORT || 8080;
 
 
 var app = express();
